@@ -1,4 +1,4 @@
-b# Capitulo 01 - Conhecendo o kubernets #
+# Capitulo 01 - Conhecendo o kubernets #
 ## O que é Kubernetes? ##
 O Kubernetes nos permite fazer uma escalabilidade horizontal do nosso poder computacional, pois ele possibilita que as máquinas trabalhem em paralelo. Com ele, você pode gerenciar uma ou múltiplas máquinas que estão trabalhando em conjunto e isso, nós podemos chamar de cluster. 
 

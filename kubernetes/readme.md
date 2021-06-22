@@ -96,8 +96,94 @@ Deletar um yaml de pod</br>
 Abrindo o bash dentro de um pod (-it é o terminal interativo) </br>
 ``` kubectl exec -it <nome do pod> -- bash ```
 
+Verificar os ips dos pods </br>
+``` kubectl get pods -o wide ```
+
+## Services ##
+- Abstrações que expoem a aplicação executando em um ou mais pods
+- Gera IP de comunicação que não muda (IP do service)
+- Gera DNS para um ou mais pods 
+- Conseguem fazer o balanceamento de carga
+
+<h3> Existem 3 tipos de serviços </h3>
+- ClusterIP
+- NodePort
+- LoadBalancer
+
+## ClusterIP ## 
+-> Faz a comunicação entre diferentes pods dentro de um mesmo cluster;
+-> A comunicação é unilateral, então o pod que tem o service recebe a comunicação de forma estável, mas não se comunica com outro pod, caso eles não tenham um service;
+-> O clusterIP não permite acessos externos, somente interno. 
+
+``` 
+#Versão da api
+apiVersion: v1
+
+#Tipo do serviço que estamos criando
+kind: Service
+
+#O nome do serviço
+metadata:
+  name: svc-pod-2
+
+#Especificações
+spec:
+
+#É um clusterip
+  type: ClusterIP
+
+#Selecionando a label do pod que eu quero
+  selector:
+    app: segundo-pod
+
+#Atribuindo a porta 
+  ports:
+    #Vai ouvir na porta abaixo
+    - port: 9000
+    #Vai despachar nessa porta
+      targetPort: 80
+```
+
+## NodePort ##
+- Permitem comunicação com o mundo externo, ou seja é possível enviar uma requisição através de um navegador para um pod que está dentro do cluster
+
+``` 
+#Versão da api
+apiVersion: v1
+
+#Tipo do serviço que estamos criando
+kind: Service
+
+#O nome do serviço
+metadata:
+  name: svc-pod-1
+
+#Especificações
+spec:
+
+#É um nodeport
+  type: NodePort
+
+#Selecionando a label do pod que eu quero
+  selector:
+    app: primeiro-pod
+
+#Atribuindo a porta 
+  ports:
+    #Vai ouvir na porta abaixo
+    - port: 80
+    #Porta fixa pra acessar de fora
+      nodePort: 30000
+```
+
+## LoadBalancer ##
+Abre a comunicação para o mundo externo usando o loadbalancer do provedor (Google Cloud, AWS, Azure e etc)
 
 
-    
+Deletar vários pods </br>
+``` kubectl delete pods --all ```
+
+Deletar vários serviços </br>
+``` kubectl delete svc --all ```
 
 

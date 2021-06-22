@@ -174,6 +174,14 @@ spec:
     - port: 80
     #Porta fixa pra acessar de fora
       nodePort: 30000
+    #Variaveis de ambiente acopladas ao arquivo da subida de imagem
+    env: 
+        - name: "MYSQL_ROOT_PASSWORD"
+          value: "q1w2e3r4"
+        - name: "MYSQL_DATABASE"
+          value: "empresa"
+        - name: "MYSQL_PASSWORD"
+          value: "q1w2e3r4"
 ```
 
 ## LoadBalancer ##
@@ -185,5 +193,26 @@ Deletar vários pods </br>
 
 Deletar vários serviços </br>
 ``` kubectl delete svc --all ```
+
+### Configs maps ### 
+Com o configmap você desacoplar informações de configurações, acessos, de subida de imagens. Também é possível reutilizar as configurações, por exemplo, de um banco de dados.
+
+```
+#Versão
+apiVersion: v1
+#Tipo
+kind: ConfigMap
+#Nome e label para conseguir acessar pelo service
+metadata:
+    name: db-configmap
+    labels: 
+        app: db-configmap
+        
+#Os dados de configuração 
+data: 
+  MYSQL_ROOT_PASSWORD: q1w2e3r4
+  MYSQL_DATABASE: empresa
+  MYSQL_PASSWORD: q1w2e3r4
+```
 
 

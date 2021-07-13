@@ -215,4 +215,37 @@ data:
   MYSQL_PASSWORD: q1w2e3r4
 ```
 
+## Replica Set ## 
+-> ReplicaSet é uma estrutura que pode encapsular um ou mais Pods.
+``` 
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: portal-noticias-replicaset
+spec: 
+  template:
+    #metadata do pod
+    metadata:
+        name: portal-noticias
+        labels: 
+          app: portal-noticias
+    #especificações do pod
+    spec: 
+      containers:
+          - name: portal-noticias-container
+            image: aluracursos/portal-noticias:1
+            ports: 
+              - containerPort: 80
+            envFrom:
+              - configMapRef:
+                  name: portal-configmap
+  replicas: 3
+  #Esse selector tem que ser sempre o name do metadata do pod
+  selector:
+    matchLabels:
+      app: portal-noticias
+```
+
+
+
 

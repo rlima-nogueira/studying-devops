@@ -257,6 +257,7 @@ kind: Deployment
 metadata:
   name: nginx-deployment
 spec: 
+  #quantidade de pod que deve subir
   replicas: 3
   template:
     #metadata do pod
@@ -278,13 +279,16 @@ spec:
 ```
 
 Após fazer uma mudança no pod do deployment:</br>
-``` kubectl apply –f .\nginx.deployment.yaml --record ```
+``` kubectl apply –f <nome do deployment>.yaml --record ```
+
+Para verificar as versões do deployment: </br>
+```kubectl rollout history deployment <nome do deployment>```
 
 Para fazer uma anotação no "CHANGE-CAUSE" do --record</br>
-``` kubectl annotate deployment nginx.deployment kubernetes.io/change-cause="MENSAGEM QUE VOCÊ QUISER" ```
+``` kubectl annotate deployment <nome do deployment> kubernetes.io/change-cause="MENSAGEM QUE VOCÊ QUISER" ```
 
 Rollback do yaml de acordo com a Versão </br>
-```kubectl rollout deployment nginx.deployment --to-revision=2```
+```kubectl rollout deployment <nome do deployment> --to-revision=<numero da versao>```
 
 
 

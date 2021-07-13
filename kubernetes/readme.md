@@ -247,5 +247,45 @@ spec:
 ```
 
 
+## Deployment ## 
+
+O deployment tem a mesma função do replica set, porém com ele é possível fazer o controle de versão do .yaml, funcionando como se fosse o controle de versão do git, por exemplo.
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec: 
+  replicas: 3
+  template:
+    #metadata do pod
+    metadata:
+        name: nginx-pod
+        labels: 
+          app: nginx-pod
+    #especificações do pod
+    spec: 
+      containers:
+          - name: nginx-container
+            image: nginx:stable
+            ports: 
+              - containerPort: 80
+  #Esse selector tem que ser sempre o name do metadata do pod
+  selector:
+    matchLabels:
+      app: nginx-pod
+```
+
+Após fazer uma mudança no pod do deployment:</br>
+``` kubectl apply –f .\nginx.deployment.yaml --record ```
+
+Para fazer uma anotação no "CHANGE-CAUSE" do --record</br>
+``` kubectl annotate deployment nginx.deployment kubernetes.io/change-cause="MENSAGEM QUE VOCÊ QUISER" ```
+
+Rollback do yaml de acordo com a Versão </br>
+```kubectl rollout deployment nginx.deployment --to-revision=2```
+
+
 
 

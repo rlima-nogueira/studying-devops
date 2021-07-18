@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume
+spec: 
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: volumes
+    - name: jenkins-container
+      image: jenkins/jenkins
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: volumes
+  volumes:
+    - name: volumes
+      hostPath:
+        path: /C/Users/rafaela.nogueira/Desktop/Pessoal/estudos/kubernetes/portal-noticias/volumes
+        type: DirectoryOrCreate

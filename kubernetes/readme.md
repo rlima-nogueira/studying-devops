@@ -290,6 +290,38 @@ Para fazer uma anotação no "CHANGE-CAUSE" do --record</br>
 Rollback do yaml de acordo com a Versão </br>
 ```kubectl rollout deployment <nome do deployment> --to-revision=<numero da versao>```
 
+## Persistindo dados ## 
+Pods foram feitos para serem destruídos, porém os dados precisam ser mantidos. Para isso, podemos criar um volume que persista atraves do hostPath. 
+
+### HostPath ### 
+É uma pasta que criamos no nosso computador para persistir os dados do pod. Caso o pod seja destruído os dados estarão salvos. 
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume
+spec: 
+#definindo containers dentro do pod
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      #Esse comando irá criar a pasta dentro do container
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: primeiro-volume
+    - name: jenkins-container
+      image: jenkins:alpine
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: primeiro-volume
+  volumes:
+    - name: primeiro-volume
+    #Caminho da pasta no computador
+      hostPath:
+        path: /C/Users/rafaela.nogueira/Desktop/Pessoal/estudos/kubernetes/portal-noticias/volumes/primeiro-volume
+        type: Directory
+```
 
 
 

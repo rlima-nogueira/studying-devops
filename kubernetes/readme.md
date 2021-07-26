@@ -324,4 +324,13 @@ spec:
 ```
 
 
+## Contexts ## 
+```kubectl config get-contexts ```
+
+```kubectl config use-context <nome do cluster>```
+
+<b>Configurando a porta da minha máquina com o cluster local</b></br>
+
+```kubectl port-forward <nome do cluster> 8080:80```
+
 

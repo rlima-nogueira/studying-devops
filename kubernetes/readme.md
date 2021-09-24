@@ -334,3 +334,4 @@ spec:
 ```kubectl port-forward <nome do cluster> 8080:80```
 
 
+ -> configmap -> deployment -> services

@@ -473,4 +473,35 @@ spec:
       app: sistema-noticias
   serviceName: svc-sistema-noticias              
 ```
+## Probes ## 
 
+#### Liveness Probe #### 
+Atraves do liveness probe podemos controlar a saúde da aplicação, caso a aplicação retorne um status que seja menor/igual a 200 ou maior/igual a 400 o pod reinicia automaticamente. 
+
+A definição: 
+
+<i>Requisição get, na porta 80, no path "/", faz o teste a cada 10 segundos, testa 3 vezes seguidas e espera 20 segundos após o inicio do pod para começar estes testes.</i>
+```
+ livenessProbe:
+    httpGet:
+      path: /
+      port: 80
+    periodSeconds: 10      
+    failureThreshold: 3
+    initialDelaySeconds: 20   
+```
+#### Rediness Probe #### 
+Atraves do rediness probe podemos controlar as requisições ao pod, caso um pod falhe, podemos usar o rediness probe para verificar quando aquele pod estará OK novamente para voltar a receber requisições. 
+
+A definição: 
+
+<i>Requisição get, na porta 80, no path "/inserir_noticias.php", faz o teste a cada 10 segundos, testa 5 vezes seguidas e espera 3 segundos após o inicio do pod para começar estes testes.</i>
+```
+ readinessProbe:
+    httpGet:
+      path: /inserir_noticias.php
+      port: 80
+    periodSeconds: 10      
+    failureThreshold: 5
+    initialDelaySeconds: 3    
+```

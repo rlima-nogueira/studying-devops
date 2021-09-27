@@ -18,6 +18,18 @@ spec:
            envFrom:
             - configMapRef:
                 name: sistema-configmap
+           volumeMounts: 
+            - name: imagens
+              mountPath: /var/www/html/uploads
+            - name: imagens
+              mountPath: /tmp
+      volumes:
+        - name: imagens
+          persistentVolumeClaim:
+            claimName: imagens-pvc      
+        - name: sessao
+          persistentVolumeClaim:
+            claimName: sessao-pvc  
   selector:
     matchLabels:
       app: sistema-noticias

@@ -334,4 +334,143 @@ spec:
 ```kubectl port-forward <nome do cluster> 8080:80```
 
 
- -> configmap -> deployment -> services
+## Persist Volum ## 
+Um metódo para criar volumes de forma não dinamica, ou seja, o persist volum tem ciclo de vida independente do pod.
+
+```
+apiVersion: v1
+kind: PersistVolume
+metadata:
+    name: pv-1
+spec:
+    capacity:
+        storage: 10Gi
+    accessModes:
+        - ReadWriteOnce
+    gcePersistentDisk:
+        pdName: pv-disk
+    storageClassName: standard
+```
+
+## Persist Volum Claim ## 
+Este é o metódo que torna o Persist Volum dinâmico. O Persist Volum só pode pertencer a um pod se ele estiver vinculado à algum Claim. Para isso é necessário fazer um bind entre o PV e o PVC através do mesmo modo de acesso e a mesma capacidade.
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: pvc-1
+spec:
+    accessModes:
+        - ReadWriteOnde
+    resources:
+        requests:
+            storage: 10Gi
+    storageClassName: standard
+```
+Abaixo é possível ver a declaração de um pod com PV e PVC.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+    name: pod-pv
+spec:
+    containers:
+        - name: nginx-container
+            image: nginx-latest
+            volumeMounts:
+                - mountPath: /volume-dentro-do-container
+                name: primeiro-pv
+    volumes:
+        - name: primeiro-pv
+            hostPath:
+                persistentVolumeClaim:
+                    claimName: pvc-1
+```
+
+## Storage Class ## 
+Nos permite criar recursos de forma dinâmica conforme a demanda do nosso cluster.
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+    name: slow
+provisioner: kubernetes.io/gce-pd
+parameters:
+    type: pd-standard
+    fstype: ext4
+    replication-type: non
+```
+
+## Stateful Set ## 
+Tem o funcionamento similar ao deployment, mas por ele é possível definir algumas configurações que fará com que os dados se tornem persistentes. 
+
+Para criar o stateful set é necessário definir os PVC e criá-los anteriormente.
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: imagens-pvc
+spec: 
+  accessModes: 
+    - ReadWriteOnce
+  resources: 
+    requests: 
+      storage: 1Gi
+```
+
+``` 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sessao-pvc
+spec: 
+  accessModes: 
+    - ReadWriteOnce
+  resources: 
+    requests: 
+      storage: 1Gi
+```
+
+```
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sistema-noticias-statefulset
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      labels: 
+        app: sistema-noticias
+      name: sistema-noticias-statefulset
+    spec:
+      containers: 
+         - name: sistema-noticias-container
+           image: aluracursos/sistema-noticias:1
+           ports: 
+            - containerPort: 80
+           envFrom:
+            - configMapRef:
+                name: sistema-configmap
+           volumeMounts: 
+            - name: imagens
+              mountPath: /var/www/html/uploads
+            - name: imagens
+              mountPath: /tmp
+      volumes:
+        - name: imagens
+          persistentVolumeClaim:
+            claimName: imagens-pvc      
+        - name: sessao
+          persistentVolumeClaim:
+            claimName: sessao-pvc  
+  selector:
+    matchLabels:
+      app: sistema-noticias
+  serviceName: svc-sistema-noticias              
+```
+

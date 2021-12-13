@@ -1,1 +1,5 @@
 /Aws
+/ansible
+aws-cli.csv
+/terraform/terraform.tfstate
+/terraform/terraform.tfstate.backup

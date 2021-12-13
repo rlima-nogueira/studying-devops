@@ -4,4 +4,4 @@ aws-cli.csv
 /terraform/terraform.tfstate
 /terraform/terraform.tfstate.backup
 
-terraform/.terraform
+/terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/3.69.0/windows_amd64/terraform-provider-aws_v3.69.0_x5.exe

@@ -41,3 +41,13 @@ Para destruir um recurso, você pode simplesmente apagar ele do arquivo main. Ou
 
 Para destruir toda a infra, basta utilizar </br>
 ``` terraform destroy ``` 
+
+
+Faz o login no terraform
+ ``` terraform login ```
+
+Após esse comando, basta copiar o token gerado e colar. 
+
+
+Esse comando vai iniciar o repo dentro do terraform
+```terraform init ``` 

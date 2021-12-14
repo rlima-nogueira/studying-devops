@@ -8,3 +8,12 @@ variable "amis" {
 variable "cdirs_acesso_remoto" {
   default = ["138.186.40.209/32"]
 }
+
+
+variable "key_name" {
+    default = "terraform-aws"
+}
+
+variable "instance_type" {
+    default = "t2.micro"
+}

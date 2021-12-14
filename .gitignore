@@ -3,4 +3,6 @@
 /terraform/.terraform
 /terraform/terraform.tfstate
 /terraform/terraform.tfstate.backup
+
+/terraform/vars.tf
 aws-cli.csv 

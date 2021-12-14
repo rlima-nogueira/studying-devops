@@ -1,3 +1,5 @@
+##### Note: Esse projeto é somente para estudo #####
+
 ### Coisas para serem lembradas sempre ### 
 - Cada imagem tem um ID diferente
 - Imagem dentro da AWS é IAM

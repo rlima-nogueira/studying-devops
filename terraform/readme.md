@@ -3,6 +3,7 @@
 - Imagem dentro da AWS é IAM
 - Cada região tem sua imagem, o que quer dizer que não posso usar o mesmo ID para duas regiões distintas
 - Posso importar uma chave pública dentro da própria AWS
+- Cada região tem um par de chaves, mas gerando uma pública, você pode importar ela para todas as regiões
 
 </br>
 </br>

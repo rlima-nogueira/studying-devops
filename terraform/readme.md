@@ -29,3 +29,15 @@ Este comando executa as configurações
 O comando show lê o arquivo terraform.tfstate e exibe as informações associadas (IP, rede, etc). 
 
 ``` terraform show ```
+
+
+Para destruir um recurso, você pode simplesmente apagar ele do arquivo main. Ou utilizar o seguinte comando: </br>
+``` terraform destroy -target <nome-do-recurso-que-quer-destruir> ``` 
+
+
+### !! Atenção !! ###
+- Quando a máquina tem uma depedência, você mata o recurso principal que a dependência vai junto. 
+
+
+Para destruir toda a infra, basta utilizar </br>
+``` terraform destroy ``` 

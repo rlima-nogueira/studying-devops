@@ -57,3 +57,16 @@ Nessa parte é possível você controlar e categorizar todos os seus gastos com 
 
 ### Criando Budget
 Limitar o valor a ser gasto na AWS, isso evita gastos desnecessários relacionados aos serviços utilizados. 
+
+### S3
+Aceita todo tipo de arquivo e até 5TB em um único arquivo.
+- Storage Class
+    - Quando você tem um arquivo que precisa acessar frequentemente, automaticamente o valor do armazenamento é mais caro.
+    - Arquivos de backups podem ser armazenados em storage class mais barato. 
+
+Para conferir tudo sobre storage class [clique aqui](https://aws.amazon.com/pt/s3/storage-classes/).
+
+## !! IMPORTANTE SABER !!
+### Você pode calcular o valor dos serviços que fará uso antes mesmo de começar a utiliza-los através da calculadora da AWS. Assim fica fácil fazer uma estimativa de gastos. 
+
+Para conferir a calculadora AWS [clique aqui](https://calculator.aws/#/).

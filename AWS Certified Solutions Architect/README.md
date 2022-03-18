@@ -50,3 +50,10 @@ Por exemplo, um grupo com usuários de INFRAESTRUTURA pode ter acesso à <b>Amaz
 <b>Atenção!!</b> </br>
 Uma vez perdido o ACESS_KEY/SECRET_KEY não tem como recuperar, só deletando e criando o usuario novamente.
 
+</br>
+
+### Billing
+Nessa parte é possível você controlar e categorizar todos os seus gastos com os serviços. Você tem gráficos, previsões de gastos e também pode configurar limites para gastos. 
+
+### Criando Budget
+Limitar o valor a ser gasto na AWS, isso evita gastos desnecessários relacionados aos serviços utilizados. 

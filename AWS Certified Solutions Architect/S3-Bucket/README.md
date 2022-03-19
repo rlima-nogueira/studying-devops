@@ -31,3 +31,14 @@ Com essa opção, é possível gerenciar o ciclo de vida dos seus arquivos. Por 
 - Antes de realizar essa mudança de storage class, precisa levantar quanto isso irá custar. Lembrando que toda vez que um arquivo já está armazenado em uma storage class e você move ele, acaba-se pagando por isso. 
 
 - Quando definimos um tempo específico par ao arquivo ser removido, por exemplo: guarde as versões dos arquivos dos ultimos 30 dias e no dia 31, quando o arquivo for deletado, não há como restaurá-lo. É importante deixar claro essa politíca de exclusão.
+
+
+## Criando um backup para o s3
+Para criar um Cross Region do bucket, a regra de versionamento deve estar ativa no bucket que será "clonado". Lembrando que caso já haja arquivos dentro do bucket, ao ativar o "espelho" dele, os arquivos não são copiados automaticamente. Só serão gravados os arquivos nos dois, após a ativação da "replica" então, para que tudo seja replicado, é necessário forçar o comando via CLI. O camando é: 
+
+``` aws s3 cp --recursive <bucket de origem> <bucket de destino> ```
+
+``` aws s3 cp --recursive bucket-rlimanogueira bucket-rlimanogueira-bckp ```
+
+Para que uma bucket acesse a outra, é necessário a criação de uma nova role. 
+

@@ -70,3 +70,4 @@ Para conferir tudo sobre storage class [clique aqui](https://aws.amazon.com/pt/s
 ### Você pode calcular o valor dos serviços que fará uso antes mesmo de começar a utiliza-los através da calculadora da AWS. Assim fica fácil fazer uma estimativa de gastos. 
 
 Para conferir a calculadora AWS [clique aqui](https://calculator.aws/#/).
+

@@ -42,3 +42,5 @@ Para criar um Cross Region do bucket, a regra de versionamento deve estar ativa 
 
 Para que uma bucket acesse a outra, é necessário a criação de uma nova role. 
 
+Quando você executa a função de delete, o arquivo não é excluído do bucket-bckp. 
+

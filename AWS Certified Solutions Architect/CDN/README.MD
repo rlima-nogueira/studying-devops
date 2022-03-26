@@ -23,3 +23,12 @@ Seus usuários podem navegar facilmente para esse URL e ver a imagem. Mas provav
 O CloudFront acelera a distribuição do seu conteúdo encaminhando cada pedido de usuário por meio da rede backbone da AWS para o ponto de presença que veicule melhor seu conteúdo. Normalmente, esse é um servidor de ponto do CloudFront que fornece a entrega mais rápida ao visualizador. Usar a rede da AWS reduz drasticamente o número de redes pelas quais as solicitações dos usuários devem passar, melhorando o desempenho. Os usuários obtêm menos latência—o tempo que leva para carregar o primeiro byte do arquivo—e taxas de transferência de dados maiores.
 
 Você também pode obter mais confiabilidade e disponibilidade porque as cópias de seus arquivos (também conhecidos como objetos) agora são mantidos (ou armazenados em cache) em vários pontos de presença em todo o mundo.
+
+
+## Criando uma distribuição 
+
+- Web 
+    - Esta distribuição é usada para armazenar site estáticos e/ou dinâmicos e live streaming
+- RTMP
+  - Esta distribuição é usada para armazenar mídias (fotos, videos, audios)
+

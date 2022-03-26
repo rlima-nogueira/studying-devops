@@ -44,3 +44,44 @@ Para que uma bucket acesse a outra, é necessário a criação de uma nova role.
 
 Quando você executa a função de delete, o arquivo não é excluído do bucket-bckp. 
 
+### REDUCE REDUNCE STORAGE - RRS
+Armazenamento do Amazon S3 que permite aos clientes armazenar dados reproduzíveis e que <b>não sejam de fundamental importância</b> com níveis de redundância mais baixos do que o armazenamento padrão do Amazon S3, em questão de durabilidade é importante ficar atento com esse tipo de armazenamento.
+<b>Disponibilidade:</b> 99,99%
+<b>Durabilidade:</b> 99,99%
+
+### S3 Standard
+Armazenamento do Amazon S3 que permite aos clientes armazenar dados reproduzíveis e que <b>não sejam de fundamental importância</b> com níveis de redundância mais baixos do que o armazenamento padrão do Amazon S3.
+<b>Disponibilidade:</b> 99,99%
+<b>Durabilidade:</b> 99,999999999%
+
+### S3 INTELLIGENT-TIERING - S3 IT
+Custo reduzido, movimentação de arquivos para níveis de acessos mais ecônomicos com base na frequência de acesso, sem impacto de performance, taxas de recuperação ou sobrecarga operacional. 
+<b>Disponibilidade:</b> 99,99%
+<b>Durabilidade:</b> 99,999999999%
+
+### S3 Standard-Infrequent Access - S3 Standard IA
+O S3 Standard-IA é indicado para dados acessados com menos frequência, mas que exigem acesso rápido quando necessários. A combinação de baixo custo e alta performance tornam a classe S3 Standard-IA ideal para armazenamento de longa duração, backups e datastores para arquivos de recuperação de desastres.
+<b>Disponibilidade:</b> 99,99%
+<b>Durabilidade:</b> 99,999999999%
+
+### S3 One Zone-Infrequent Access - S3 One Zone-IA
+O S3 One Zone-IA é indicado para dados acessados com menos frequência, mas que exigem acesso rápido quando necessários. Ao contrário de outras classes de armazenamento do S3, que armazenam dados em no mínimo três Zonas de disponibilidade (AZs), a S3 One Zone-IA armazena dados em uma única AZ, com um custo 20% inferior ao S3 Standard-IA. A classe S3 One Zone-IA é ideal para clientes que querem uma opção de menor custo para dados acessados com pouca frequência, mas não precisam da disponibilidade e da resiliência S3 Standard ou S3 Standard-IA.
+<b>Disponibilidade:</b> 99,5%
+<b>Durabilidade:</b> 99,999999999%
+
+### S3 Glacier Instant Retrieval
+A Amazon S3 Glacier Instant Retrieval é uma classe de armazenamento de arquivos que oferece o armazenamento de custo mais baixo para dados de longa duração, que raramente são acessados e exigem recuperação em milissegundos. Com a S3 Glacier Instant Retrieval, você pode economizar até 68% nos custos de armazenamento em comparação com o uso da classe de armazenamento S3 Standard-Infrequent Access (S3 Standard-IA), quando seus dados são acessados uma vez por trimestre. 
+<b>Disponibilidade:</b> 99,9%
+<b>Durabilidade:</b> 99,999999999%
+
+### S3 Glacier Flexible Retrieval - S3 Glacier
+O S3 Glacier Flexible Retrieval oferece armazenamento de baixo custo, custo até 10% menor (do que o S3 Glacier Instant Retrieval), para dados de arquivo que são acessados 1 a 2 vezes por ano e recuperados de forma assíncrona. Para dados de arquivo que não requerem acesso imediato, mas que precisam da flexibilidade para recuperar grandes conjuntos de dados sem nenhum custo, como casos de uso de backup ou recuperação de desastres, a S3 Glacier Flexible Retrieval (antiga S3 Glacier) é a classe de armazenamento ideal.
+Tempos de recuperação configuráveis, de minutos a horas, com recuperações em massa gratuitas
+<b>Durabilidade:</b> 99,999999999%
+
+### S3 Glacier Deep Archive
+A S3 Glacier Deep Archive é a classe de armazenamento mais acessível do Amazon S3 e oferece suporte à retenção e preservação digital de longo prazo para dados que podem ser acessados uma ou duas vezes por ano. Essa classe é projetada para clientes que mantêm conjuntos de dados por 7 a 10 anos ou mais para cumprir requisitos de conformidade regulatória, especialmente em setores altamente regulados como serviços financeiros, saúde e setores públicos.
+Tempo de recuperação de até 12 horas
+<b>Durabilidade:</b> 99,999999999%
+
+<img src="./classesS3.JPG">

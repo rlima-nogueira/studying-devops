@@ -27,3 +27,20 @@
     - Rápida criação, operação e escalibidade 
     - Não é utilizado discos
     - In-Memory cache -> amarzena em memória (processamento -> memória)
+    
+    - Dois tipos de elasticache
+        - Memcache - armazena em objetos 
+        - Redis - armazena em key/value 
+            - Somente o redis pode ter Multi-AZ
+
+## Redshift
+    - Warehouse 
+        - Esse database serve mais para estoques
+        - Armazena as coisas em coluna, isso agiliza a leitura (read)
+        - Ele já inicia com 160GB
+        - Compressão de dados
+    - 2 tipos
+        - Single mode -> 1 instância só de db
+        - Compute model -> Até 128 instâncias de db
+    - MPP - Massive Paralel Progressive
+    - Não é MULTI-AZ

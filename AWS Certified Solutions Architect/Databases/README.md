@@ -44,3 +44,17 @@
         - Compute model -> Até 128 instâncias de db
     - MPP - Massive Paralel Progressive
     - Não é MULTI-AZ
+
+## Aurora
+    - Criado em 2014
+    - Compatível com o mySQL-ORACLE
+    - 5x mais rápida que qualquer outra database dentro da aws
+    - 10x mais barata que outras databases
+    - Default 10GB
+    - Autoscaling automatico
+    - 1 banco de dados 64TB
+    - Pode ter até 15 replicas 
+    - Latência muito baixa 
+    - Recover - Point-In-Time (Recuperação de arquivo em dia, horas, segundos)
+    - Backup contínuo e pelo menos 3 zonas
+    

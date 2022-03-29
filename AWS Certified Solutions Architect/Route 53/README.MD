@@ -28,3 +28,18 @@ Serviço AWS para DNS - Domain Name Service
 - Pointer (PTR)
     - Funciona como ferramenta de reverse, se eu der o IP final, ele me dá o IP que consultou
 
+
+
+## Simple Routing Policy
+
+## Failover 
+
+## Geolocation Routing
+
+## Geoproxymity Routing (Traffic flow only)
+
+## Latency-based routing
+
+## Multivalue Answer Routing
+
+## Weighted Routing

@@ -1,6 +1,8 @@
 # Route 53
 Serviço AWS para DNS - Domain Name Service
 
+-> Recurso global da AWS
+
 -> Responsável pela resolução do enderaçamento IP
 -> Redundância de todas as localizações
 -> 100% de SLA (Availability)

@@ -49,7 +49,6 @@
     - Criado em 2014
     - Compatível com o mySQL-ORACLE
     - 5x mais rápida que qualquer outra database dentro da aws
-    - 10x mais barata que outras databases
     - Default 10GB
     - Autoscaling automatico
     - 1 banco de dados 64TB

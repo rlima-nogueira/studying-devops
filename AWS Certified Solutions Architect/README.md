@@ -71,3 +71,7 @@ Para conferir tudo sobre storage class [clique aqui](https://aws.amazon.com/pt/s
 
 Para conferir a calculadora AWS [clique aqui](https://calculator.aws/#/).
 
+
+### ACL x Security Group
+- ACL -> é statefull que é uma forma dar permissão e bloqueio para determinadas coisas
+- Security Group -> é stateless ele dá permissão à determinada coisa e bloqueia todo o resto, não deixando de forma dinâmica

@@ -41,5 +41,11 @@ Request - Por requisições
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/3L6e3OwCgSWOxp79AJUzXs/824b114d630b1c6d9c1252efc2f00f95/osi-model-7-layers_ptBR.svg">
 
 
-
-
+Amazon EC2 Auto Scaling have some the pre-defined termination policies:
+1. Default
+2. AllocationStrategy
+3. OldestLauchTemplate
+4. OldestLauchConfiguration
+5. ClosestToNextInstanceHour
+6. NewestIntance
+7. OldestInstance

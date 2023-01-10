@@ -8,6 +8,11 @@
 
 </br>
 
+### Public Cloud X Hybrid Cloud X Private Cloud
+Cloud pública nada tem a ver com ter seus serviços/infraestrutura exposto para toda e qualquer pessoa, apenas que todos os serviços são oferecidos a qualquer tipo de pessoa/público. Por isso o termo "público". 
+Cloud privada você pode locar hacks físicos nos datacenters da amazon/google, isso te faz um custo maior, porém com um nível maior de segurança. 
+Cloud híbrida é uma mescla das duas coisas, tanto você pode ter os hacks locados quanto serviços/infra na nuvem.
+
 ### Como funciona a infra da AWS
 - Region
     - Availability zone
@@ -75,3 +80,14 @@ Para conferir a calculadora AWS [clique aqui](https://calculator.aws/#/).
 ### ACL x Security Group
 - ACL -> é statefull que é uma forma dar permissão e bloqueio para determinadas coisas
 - Security Group -> é stateless ele dá permissão à determinada coisa e bloqueia todo o resto, não deixando de forma dinâmica
+
+
+Amazon EBS - Designed to support block storage volumes with Amazon EC2 instances
+
+Amazon EFS - Designed as a native Multi-AZ file system for NFS file shares
+
+Amazon FSx for Lustre - Designed for distributed high performance computing workloads
+
+Amazon S3 - Designed to support millions of storage objects and accessed using REST APIs
+
+Amazon FSx for Windows File Server - Designed to support SMB file shares in a Single-AZ or Multi-AZ configuration

@@ -43,6 +43,12 @@ docker container run -e VARIAVEL_DE_AMBIENTE=TESTE -d -p 5432:5432 <nome-da-imag
 docker container rm -f <ID_CONTAINER>
 ```
 
+**PARA BUILDAR UMA IMAGEM DOCKER**
+```
+docker build -t <NOME-DA-IMAGEM-A-SER-BUILDADA> <CAMINHO-DO-PROJETO-COM-O-ARQUIVO-DOCKERFILE>
+```
+
+
 ---
 
 Link do Evento: https://imersao.devopspro.com.br/evento/
